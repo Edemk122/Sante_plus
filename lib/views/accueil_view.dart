@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'actualite_view.dart';
 import 'conseil_view.dart';
+import 'fonctionnalites_view.dart';
 import 'rappel_view.dart';
 import 'rendezvous_view.dart';
 import 'profil_view.dart';
@@ -37,6 +39,13 @@ class AccueilView extends StatelessWidget {
       "label": "Profil",
       "route": (context) => ProfilView(),
     },
+    {
+      "icon": Icons.article,
+      "color": Colors.teal,
+      "label": "Actualité",
+      "route": (context) => ActualiteView(),
+    },
+
   ];
 
   @override
@@ -48,8 +57,9 @@ class AccueilView extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.list, color: Colors.white),
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text("Bouton liste cliqué ✅")),
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => FonctionnalitesView()),
             );
           },
         ),
